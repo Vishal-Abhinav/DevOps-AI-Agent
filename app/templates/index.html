@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <header class="bg-gray-800 text-center py-4 shadow-lg text-xl font-bold">
+        DevOps Code-gen v1.0 — Developed by Vishal Abhinav
+    </header>
+
+    <div class="flex">
+        <aside class="w-64 bg-gray-900 border-r border-gray-700 p-6">
+            <nav class="space-y-4 text-lg">
+                <a href="#" class="hover:underline">Our Product</a>
+                <a href="#" class="hover:underline">About Us</a>
+                <a href="#" class="hover:underline">API Documentation</a>
+                <a href="https://opensource.guide/" target="_blank" class="hover:underline">Open Source Links</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-6 space-y-6">
+            <textarea class="w-full h-64 p-4 rounded bg-gray-800 border border-gray-600 text-white" placeholder="Enter your prompt here to generate code..."></textarea>
+            <div class="flex gap-4 mt-4">
+                <button class="bg-green-600 px-4 py-2 rounded">Generate</button>
+                <button class="bg-blue-600 px-4 py-2 rounded">Download</button>
+                <button class="bg-purple-600 px-4 py-2 rounded">Share</button>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-center py-3 text-sm border-t border-gray-700">
+        © Copyright & Patent registered By Abhinav & Brothers
+    </footer>
+{% endblock %}

@@ -1,0 +1,22 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__
+
+# Virtual environment
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Flask config files (optional, if you're using environment variables or local configurations)
+*.env
+
+# Database files (if you're using SQLite or any local DB for development)
+*.db

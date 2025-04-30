@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevOps Code-gen v1.0 Developed by Vishal Abhinav">
+    <title>DevOps Code-gen</title>
+    <link href="{{ url_for('static', filename='css/tailwind.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white">
+    <div class="container mx-auto p-6">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
