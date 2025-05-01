@@ -16,38 +16,37 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Python
+    - name: Set up Python 3.10
       uses: actions/setup-python@v4
       with:
-        python-version: 3.10
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
-        python -m venv venv
-        source venv/bin/activate
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Test the Flask app
+    - name: Run tests (if any)
       run: |
-        source venv/bin/activate
-        python -m unittest discover -s tests  # Assuming you have tests
-     
-    - name: Build the app
+        if [ -d tests ]; then
+          python -m unittest discover -s tests
+        else
+          echo "No tests found."
+        fi
+
+    - name: Build Flask App (sanity check)
       run: |
-        source venv/bin/activate
-        python app.py  # Start your app to ensure everything is working
+        python app.py &
+        sleep 5
+        curl -f http://localhost:5000 || (echo "App failed to start" && exit 1)
+        pkill -f app.py
 
     - name: Install Firebase CLI
       run: |
         curl -sL https://firebase.tools | bash
-        export PATH="$PATH:/home/runner/.firebase-tools/bin"
-
-    - name: Authenticate Firebase
-      run: |
-        echo "${{ secrets.FIREBASE_TOKEN }}" | firebase login:ci --token
 
     - name: Firebase Deploy
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       run: |
-        firebase use --add  # Select the correct project
-        firebase deploy --only hosting --project <your-firebase-project-id>
-      
+        firebase deploy --only hosting --project your-project-id --token "$FIREBASE_TOKEN"
