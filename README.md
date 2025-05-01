@@ -61,22 +61,22 @@ This document will walk you through the **project architecture**, **integration 
   ```bash
   pip install flask-cors
 #repo structure 
-DevOps-AI-Agent/
-├── app/
-│   ├── __init__.py          # Flask app initialization
-│   ├── routes.py            # API routes
-│   ├── templates/           # HTML files (Frontend)
-│   ├── static/              # Static assets (CSS, JS)
-│   └── config.py            # Configurations (e.g., Firebase settings)
-├── requirements.txt         # Project dependencies
-├── run.py                   # Entry point for the Flask app
-├── .github/
-│   └── workflows/
-│       └── python-ci.yml    # GitHub Actions for CI/CD
-├── firebase.json            # Firebase configuration
-├── .gitignore               # Git ignore file
-├── README.md                # Project documentation (this file)
-└── LICENSE                  # Project license (if applicable)
+#DevOps-AI-Agent/
+#├── app/
+#│   ├── __init__.py          # Flask app initialization
+#│   ├── routes.py            # API routes
+#│   ├── templates/           # HTML files (Frontend)
+#│   ├── static/              # Static assets (CSS, JS)
+#│   └── config.py            # Configurations (e.g., Firebase settings)
+#├── requirements.txt         # Project dependencies
+#├── run.py                   # Entry point for the Flask app
+#├── .github/
+#│   └── workflows/
+#│       └── python-ci.yml    # GitHub Actions for CI/CD
+#├── firebase.json            # Firebase configuration
+#├── .gitignore               # Git ignore file
+#├── README.md                # Project documentation (this file)
+#└── LICENSE                  # Project license (if applicable)
 #Credits
 Flask: Flask
 
