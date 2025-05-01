@@ -1,45 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevOps AI Agent</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-900">
-  <div class="max-w-4xl mx-auto p-8">
-    <h1 class="text-4xl font-bold mb-4">🚀 DevOps AI Agent</h1>
-    <p class="mb-6">Welcome to your intelligent DevOps assistant. Start asking questions or explore use cases.</p>
-    
-    <form id="ask-form" class="bg-white p-4 rounded shadow">
-      <label for="question" class="block mb-2 text-sm font-medium text-gray-700">Your Question</label>
-      <input type="text" id="question" name="question" class="w-full border rounded px-3 py-2 mb-4" placeholder="Ask anything about DevOps...">
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Ask</button>
-    </form>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DevOps AI Agent</title>
+    <script type="module">
+      // Firebase JS SDK setup
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
 
-    <div id="response" class="mt-6 bg-green-100 p-4 rounded hidden">
-      <p class="text-gray-800" id="response-text"></p>
-    </div>
-  </div>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBfZAr_XQMbB1sW9iStwFfy56rd-lJuqWc",
+        authDomain: "devops-ai-agent.firebaseapp.com",
+        projectId: "devops-ai-agent",
+        storageBucket: "devops-ai-agent.appspot.com", <!-- corrected .app to .appspot.com -->
+        messagingSenderId: "71937932619",
+        appId: "1:71937932619:web:cc168d4e1a3df1431e3cce",
+        measurementId: "G-WVTHY04ZHZ"
+      };
 
-  <script>
-    const form = document.getElementById('ask-form');
-    const responseBox = document.getElementById('response');
-    const responseText = document.getElementById('response-text');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const question = document.getElementById('question').value;
-      const res = await fetch(`/api/ask`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ question })
-      });
-      const data = await res.json();
-      responseText.textContent = data.answer || "No response received.";
-      responseBox.classList.remove('hidden');
-    });
-  </script>
-</body>
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </head>
+  <body>
+    <h1>Welcome to DevOps AI Agent</h1>
+    <p>Firebase is initialized with Analytics.</p>
+  </body>
 </html>
-
