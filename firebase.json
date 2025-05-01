@@ -1,16 +1,8 @@
 {
   "hosting": {
     "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
-      {
-        "source": "/api/**",
-        "function": "app"  // OR proxy to Flask backend
-      },
       {
         "source": "**",
         "destination": "/index.html"
