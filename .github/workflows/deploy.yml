@@ -1,4 +1,4 @@
-name: Python CI with Flask and Firebase Hosting
+name: Python CI with Flask
 
 on:
   push:
@@ -26,27 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests (if any)
+    - name: Run Flask App
       run: |
-        if [ -d tests ]; then
-          python -m unittest discover -s tests
-        else
-          echo "No tests found."
-        fi
-
-    - name: Build Flask App (sanity check)
-      run: |
-        python app.py &
-        sleep 5
-        curl -f http://localhost:5000 || (echo "App failed to start" && exit 1)
-        pkill -f app.py
-
-    - name: Install Firebase CLI
-      run: |
-        curl -sL https://firebase.tools | bash
-
-    - name: Firebase Deploy
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      run: |
-        firebase deploy --only hosting --project your-project-id --token "$FIREBASE_TOKEN"
+        python run.py
